@@ -44,7 +44,15 @@ BertSum은 BERT 위에 inter-sentence Transformer 2-layers 를 얹은 구조를 
 
 ## Install
 
-1. 필요 라이브러리 설치
+1. Docker 컨테이터 실행
+
+    ```
+    docker build -t kobertsum:1.0.0 .
+    docker run -itd --ipc host --gpus all --name kobertsum kobertsum:1.0.0
+    docker exec -it kobertsum bash
+    ```
+
+2. 필요 라이브러리 설치
 
     ```
     python main.py -task install
@@ -54,7 +62,7 @@ BertSum은 BERT 위에 inter-sentence Transformer 2-layers 를 얹은 구조를 
 
 1. 데이터 Preprocessing
 
-   데이터를 `ext/data/raw` 에 넣어준 후 다음을 실행하여 BERT 입력을 위한 형태로 변환합니다.
+  `jsonl` 확장자 데이터 파일을 `ext/data/raw` 에 넣어준 후 다음을 실행하여 BERT 입력을 위한 형태로 변환합니다.
 
    - `n_cpus`: 연산에 이용할 CPU 수
 
@@ -62,7 +70,7 @@ BertSum은 BERT 위에 inter-sentence Transformer 2-layers 를 얹은 구조를 
     python main.py -task make_data -n_cpus 2
     ```
    
-   결과는 `ext/data/bert_data/train_abs` 및  `ext/data/bert_data/valid_abs` 에 저장됩니다.
+   결과는 `ext/data/bert_data/train_abs` 및  `ext/data/bert_data/valid_abs` 에 저장됩니다. `ext` 모드로 사용하려면 디렉토리 이름을 `train_ext`, `valid_ext`로 바꿔두면 됩니다.
    
 2. Fine-tuning
 

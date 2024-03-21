@@ -43,6 +43,9 @@ if __name__ == '__main__':
         os.system("pip install Cython")
         os.system("python src/others/install_mecab.py")
         os.system("pip install -r requirements_prepro.txt")
+        os.system("pip3 install konlpy")
+        os.system("apt install curl")
+        os.system("bash <(curl -s https://raw.githubusercontent.com/konlpy/konlpy/master/scripts/mecab.sh)")
 
     # python main.py -task make_data -n_cpus 2
     elif args.task == 'make_data':

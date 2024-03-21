@@ -1,9 +1,5 @@
-#Cython
+typing-extensions==3.7.4.3
 kss
 bs4
 pandas
-
-# test
-# py-rouge
 nltk
-konlpy
