@@ -10,7 +10,7 @@ PROBLEM = 'ext'
 
 ## 사용할 path 정의
 # PROJECT_DIR = '/home/uoneway/Project/PreSumm_ko'
-PROJECT_DIR = '..'
+PROJECT_DIR = '/kobertsum'
 print(PROJECT_DIR)
 
 DATA_DIR = f'{PROJECT_DIR}/{PROBLEM}/data'
@@ -26,7 +26,7 @@ RESULT_DIR = f'{PROJECT_DIR}/{PROBLEM}/results'
 # python make_submission.py result_1209_1236_step_7000.candidate
 if __name__ == '__main__':
     # test set
-    with open(RAW_DATA_DIR + '/extractive_test_v2.jsonl', 'r') as json_file:
+    with open(RAW_DATA_DIR + '/extractive_test_v2.jsonl', 'r', encoding='utf-8-sig') as json_file:
         json_list = list(json_file)
 
     tests = []
